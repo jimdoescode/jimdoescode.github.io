@@ -19,7 +19,7 @@ var x interface{} = 5
 var x64 int64 = x.(int64)
 {% endhighlight %}
 
-So what's the difference? Well **conversion** should be used when you are dealing with a **type**, whether that be a constant or struct or whatever. **Assertion** is used when when you're dealing with an **interface**. Say for example a method returns an interface instead of a type, you can use assertion to convert the return value to any type that implements that interface.
+So what's the difference? Well **conversion** should be used when you are dealing with a **type**, whether that be a constant or struct or whatever. **Assertion** is used when when you're dealing with an **interface**. Say for example a method returns an interface instead of a struct, there's still a value associated with the return but it has a generic type. You can use assertion to convert the return value to any type that implements that interface.
 
 Pretty nifty!
 
