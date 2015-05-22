@@ -8,7 +8,7 @@ categories: go golang colors
 This took me a while to figure out so I figured I better document it. 
 
 I'm working on a project that requires that I get the average color for a section of an image. This was the function I created to do that:
-{% highlight go %}
+{% highlight go linenos %}
 func AverageImageColor(i image.Image) color.Color {
 	var r, g, b uint32
 
