@@ -21,9 +21,9 @@ provides a nice dependency tree using Nodes `require` function.
 
 To run Browserify with Reactify execute the command:
 
-```
+{% highlight bash %}
 $ browserify -t reactify path/to/jsx/files -o public/script.js
-```
+{% endhighlight %}
 
 Once you get this working it's generally all you need. That said there are a few extra tools and 
 plugins for Browserify that come in handy. One of the nicest from a development standpoint is 
@@ -31,50 +31,50 @@ Watchify. It's a Browserify plugin that will watch whatever files you tell it an
 change it recompiles everything into a new script.js file. The tricky thing with it is that
 it basically takes the place of the Browserify command. 
 
-```
+{% highlight bash %}
 $ watchify -t reactify path/to/jsx/files -o public/js/script.js
-```
+{% endhighlight %}
 
 Browserify also has an uglify plugin but I was never successful in getting that to work with Reactify.
 I ended up going with the standalone Uglifyjs tool. Fortunately all the Browserify stuff writes to stdout 
 so piping output in bash is straight forward. 
 
-```
+{% highlight bash %}
 $ browserify -t reactify path/to/jsx/files | uglifyjs > public/script.min.js
-```
+{% endhighlight %}
 
 To bring all these commands together we can use the scripts hash in NPM's package.json file. This will
 let us perform any of those commands using `npm run`. First we add them to the scripts hash
 
-```
+{% highlight json %}
 "scripts": {
     "build-dev": "browserify -t reactify path/to/jsx/files -o public/script.js",
     "build-prod": "browserify -t reactify path/to/jsx/files | uglifyjs > public/script.min.js",
     "watch": "watchify -t reactify path/to/jsx/files -o public/script.js",
     "clean-js": "rm public/*.js"
 },
-```
+{% endhighlight %}
 
 Now any of the following commands are available:
 
-```
+{% highlight bash %}
 $ npm run build-dev
-```
+{% endhighlight %}
 Will compile our JSX into a single script file.
 
-```
+{% highlight bash %}
 $ npm run build-prod
-```
+{% endhighlight %}
 Will compile our JSX into a single script file then uglify it.
 
-```
+{% highlight bash %}
 $ npm run watch
-```
+{% endhighlight %}
 Will compile our JSX into a single script file anytime one of our JSX files changes.
 
-```
+{% highlight bash %}
 $ npm run clean-js
-```
+{% endhighlight %}
 Will remove all js scripts from our public folder. 
 
 
