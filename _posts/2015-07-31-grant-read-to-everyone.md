@@ -1,7 +1,8 @@
+---
 layout: post
 title:  "Grant Read Access to Everyone in S3"
 date:   2015-07-31 15:30:47
-categories: aws s3
+categories: aws s3 permissions
 ---
 
 Just a quick note on how to do this as it was a little tough to find.
