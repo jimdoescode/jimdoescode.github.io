@@ -46,7 +46,7 @@ $ browserify -t reactify path/to/jsx/files | uglifyjs > public/script.min.js
 To bring all these commands together we can use the scripts hash in NPM's package.json file. This will
 let us perform any of those commands using `npm run`. First we add them to the scripts hash
 
-{% highlight json %}
+{% highlight javascript %}
 "scripts": {
     "build-dev": "browserify -t reactify path/to/jsx/files -o public/script.js",
     "build-prod": "browserify -t reactify path/to/jsx/files | uglifyjs > public/script.min.js",
