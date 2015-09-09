@@ -1,8 +1,9 @@
 ---
 layout: post
+author: jim
 title:  "Get React working with Browserify and NPM without Gulp or Grunt"
 date:   2015-07-18 13:50:47
-categories: js javascript react browserify npm uglifyjs reactify watchify
+tags: [js, javascript, react, browserify, npm, uglifyjs, reactify, watchify]
 ---
 
 Why are there so many build tools in the front-end world? It seems needlessly complex. Anyway I 

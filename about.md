@@ -1,11 +1,10 @@
 ---
 layout: page
 title: About
+author: Jim
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+This blog is more for me than for you. Any usefulness you derive from it is purely coincidence. 
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+That said, I appreciate you looking and wish you the best in your coding journeys. 

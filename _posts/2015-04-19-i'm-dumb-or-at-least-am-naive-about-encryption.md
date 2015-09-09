@@ -1,8 +1,9 @@
 ---
 layout: post
+author: jim
 title:  "I'm dumb or at least naive about encryption"
 date:   2015-04-19 18:19:47
-categories: go golang encryption public-key-encryption
+tags: [go, golang, encryption, public-key-encryption]
 ---
 
 I just completed my first [challenge in Go][challenge]! It turned out better than I thought it would and I'm pretty proud of it. I had a working version or, at least I thought I did, a week or so before the end of the challenge. There were just two unit tests (provided by the challenge author) that were failing and it wasn't clear to me why. Only after reading up on public key encryption did I realize that it's entirely one way. 

@@ -1,8 +1,9 @@
 ---
 layout: post
+author: jim
 title:  "rbenv and gem binaries"
 date:   2015-04-17 17:09:47
-categories: rbenv ruby gem 
+tags: [rbenv, ruby, gem] 
 ---
 Figured I'd give [GitHub Pages][github-pages] a shot which means I need to set up [Jekyll][jekyll]. That means I need to install Ruby, as the version install on my Mac is pretty out of date. After some quick googling it appears that managing ruby versions with RVM is out as the version manager and [rbenv] is in. That brought about some minor confusion.
 

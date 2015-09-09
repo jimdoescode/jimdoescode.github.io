@@ -1,8 +1,9 @@
 ---
 layout: post
+author: jim
 title:  "Manipulating Colors in Go"
 date:   2015-05-22 01:07:47
-categories: go golang colors 
+tags: [go, golang, colors] 
 ---
 
 This took me a while to figure out so I figured I better document it. 

@@ -1,8 +1,9 @@
 ---
 layout: post
+author: jim
 title:  "Type conversion VS type assertion in go"
 date:   2015-04-23 18:19:47
-categories: go golang type-conversion type-assertion
+tags: [go, golang, type-conversion, type-assertion]
 ---
 
 Just learned an interesting subtlety about Go. There are two ways to "cast" values. I put cast in quotes because one isn't really casting but it's just the general term I always use for saying "change on type to another one".

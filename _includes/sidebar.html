@@ -1,0 +1,47 @@
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}
+{% endif %}
+
+<div class="header">
+
+  <a href="{{ site.url }}/" class="brand-title">{{ site.title }}</a>
+  <span class="brand-tagline">{{ site.description }}</span>
+
+  <nav class="nav">
+    <ul class="nav-list">
+      {% for page in site.pages %} {% if page.title %}
+      <li class="nav-item">
+        <a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a>{% unless forloop.last %} <span>/</span>{% endunless %}
+      </li>
+      {% endif %} {% endfor %}
+    </ul>
+  </nav>
+
+  <!--<div class="social-links">-->
+  <div class="nav">
+    <ul class="nav-list">
+        <li class="nav-item"><span>{{ site.owner }}:&nbsp;</span></li>
+      {% if site.email %}<li class="nav-item"><a href="mailto:{{ site.email }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-envelope"></i></a></li>{% endif %}
+      {% if site.social.twitter %}<li class="nav-item"><a href="http://twitter.com/{{ site.social.twitter }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>{% endif %}
+      {% if site.social.facebook %}<li class="nav-item"><a href="http://facebook.com/{{ site.social.facebook }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-facebook"></i></a></li>{% endif %}
+      {% if site.social.google.plus %}<li class="nav-item"><a href="http://plus.google.com/+{{ site.social.google.plus }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-google-plus"></i> Google+</a></li>{% endif %}
+      {% if site.social.linkedin %}<li class="nav-item"><a href="http://linkedin.com/in/{{ site.social.linkedin }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>{% endif %}
+      {% if site.social.xing %}<li class="nav-item"><a href="http://www.xing.com/profile/{{ site.social.xing }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-xing"></i></a></li>{% endif %}
+      {% if site.social.instagram %}<li class="nav-item"><a href="http://instagram.com/{{ site.social.instagram }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-instagram"></i></a></li>{% endif %}
+      {% if site.social.tumblr %}<li class="nav-item"><a href="http://{{ site.social.tumblr }}.tumblr.com" class="social-link-item" target="_blank"><i class="fa fa-fw fa-tumblr"></i></a></li>{% endif %}
+      {% if site.social.github %}<li class="nav-item"><a href="http://github.com/{{ site.social.github }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>{% endif %}
+      {% if site.social.stackoverflow %}<li class="nav-item"><a href="http://stackoverflow.com/users/{{ site.social.stackoverflow }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a></li>{% endif %}
+      {% if site.social.lastfm %}<li class="nav-item"><a href="http://lastfm.com/user/{{ site.social.lastfm }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-music"></i></a></li>{% endif %}
+      {% if site.social.dribbble %}<li class="nav-item"><a href="http://dribbble.com/{{ site.social.dribbble }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-dribbble"></i></a></li>{% endif %}
+      {% if site.social.pinterest %}<li class="nav-item"><a href="http://www.pinterest.com/{{ site.social.pinterest }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-pinterest"></i></a></li>{% endif %}
+      {% if site.social.foursquare %}<li class="nav-item"><a href="http://foursquare.com/{{ site.social.foursquare }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-foursquare"></i></a></li>{% endif %}
+      {% if site.social.steam %}<li class="nav-item"><a href="http://steamcommunity.com/id/{{ site.social.steam }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-steam"></i></a></li>{% endif %}
+      {% if site.social.youtube %}<li class="nav-item"><a href="https://youtube.com/user/{{ site.social.youtube }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-youtube"></i></a></li>{% endif %}
+      {% if site.social.soundcloud %}<li class="nav-item"><a href="http://soundcloud.com/{{ site.social.soundcloud }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-soundcloud"></i></a></li>{% endif %}
+      {% if site.social.weibo %}<li class="nav-item"><a href="http://www.weibo.com/{{ site.social.weibo }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-weibo"></i></a></li>{% endif %}
+      {% if site.social.flickr %}<li class="nav-item"><a href="http://www.flickr.com/{{ site.social.flickr }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-flickr"></i></a></li>{% endif %}
+      {% if site.social.codepen %}<li class="nav-item"><a href="http://codepen.io/{{ site.social.codepen }}" class="social-link-item" target="_blank"><i class="fa fa-fw fa-codepen"></i></a></li>{% endif %}
+    </ul>
+  </div>
+  
+</div>
