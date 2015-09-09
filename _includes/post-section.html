@@ -19,7 +19,7 @@
 
     <p class="post-meta">
       By
-      <a class="post-author" href="{{ author.site }}">{{ author.name }}</a>
+      <a class="post-author" href="{{ author.site }}" title="{{ author.bio }}" data-toggle="tooltip" data-placement="bottom">{{ author.name }}</a>
       {% if post.tags.size > 0 %}
       under
       {% for tag in post.tags %}
