@@ -49,5 +49,5 @@ return color.NRGBA{uint8(r / 0x101), uint8(g / 0x101), uint8(b / 0x101), 255}
 
 Here's the difference that makes in the image:
 
-![Bad output]({{ site.url }}/assets/2015-05-22_bad_out.png)
-![Good output]({{ site.url }}/assets/2015-05-22_good_out.png)
+![Bad output]({{ site.url }}/img/2015-05-22_bad_out.png)
+![Good output]({{ site.url }}/img/2015-05-22_good_out.png)
