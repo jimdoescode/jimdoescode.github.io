@@ -23,7 +23,7 @@
       {% if post.tags.size > 0 %}
       under
       {% for tag in post.tags %}
-      <a class="post-tag {{ tag | slugize }}" href="{{ site.url }}/tags/#{{ tag }}">{{ tag }}</a>
+      <a class="post-tag {{ tag | slugize }}" href="{{ site.url }}/tags/#{{ tag }}"><i class="fa fa-tag"></i> {{ tag }}</a>
       {% endfor %}
       {% endif %}
     </p>
