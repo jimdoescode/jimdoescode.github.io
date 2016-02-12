@@ -9,11 +9,11 @@ tags: [make, makefile]
 I just spent the better part of an hour trying to figure out why my makefile wasn't working.
 
 Here is my dead simple makefile
-```
+{% highlight make %}
 .PHONY client
 client:
 	echo "Test test"
-```
+{% endhighlight %}
 
 Yet when I ran `$ make client` the output was always: `make: Nothing to be done for 'client'.`
 
