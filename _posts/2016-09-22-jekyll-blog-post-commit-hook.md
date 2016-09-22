@@ -12,9 +12,9 @@ Installation
 ------------
 
 Download the source and run:
-```sh
+{% highlight sh %}
 $ make install
-```
+{% endhighlight %}
 
 This will make sure that the necessary gems are installed and then will prompt you for the location of the project you want to use the hook with. It then copies the hook to the `.git/hooks` directory of that project.
 
