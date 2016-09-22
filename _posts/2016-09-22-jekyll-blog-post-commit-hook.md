@@ -1,6 +1,6 @@
 ---
 layout: post
-author: jimdoescode
+author: jim
 title: "Jekyll Blog Post Commit Hook"
 date: 2016-09-22 00:27:58
 tags: [ruby, git, jekyll, makefile]
