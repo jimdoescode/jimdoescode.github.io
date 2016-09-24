@@ -1,8 +1,11 @@
 # Authors
 
-jim:
+jim: &DEFAULT
   name: Jim
   email: jimdoescode+wut@gmail.com
   bio: "I'm code. I'm developer."
 
-jimdoescode: &jim
+# This makes jimdoescode equivalent to jim so
+# I don't have to keep two places updated
+jimdoescode:
+  <<: *DEFAULT
