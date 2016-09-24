@@ -3,7 +3,7 @@ layout: post
 author: jim
 title: "Jekyll Blog Post Commit Hook"
 date: 2016-09-22 00:27:58
-tags: [ruby, git, jekyll, makefile]
+tags: [ruby, git, jekyll, makefile, jekyll-post-commit]
 ---
 
 I'm wrapping up work on a post commit hook that will create a Jekyll markdown file based off a git commit message. I'm not really sure if there is much utility in this app but it was a fun way to dive back into ruby code. You can find all the code [here](https://github.com/jimdoescode/jekyll-blog-post-commit-hook)
@@ -13,7 +13,7 @@ Installation
 
 Download the source and run:
 {% highlight sh %}
-$ make install
+$ make install-hook
 {% endhighlight %}
 
 This will make sure that the necessary gems are installed and then will prompt you for the location of the project you want to use the hook with. It then copies the hook to the `.git/hooks` directory of that project.
