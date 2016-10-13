@@ -9,7 +9,7 @@ pre, code {
   font-size: ($base-font-size - 2);
 }
 code {
-  background: #F7F5D7;
+  background: #f9f9f9;
   color: $grey-color;
   word-break: break-all;
   white-space: normal;
@@ -38,6 +38,8 @@ pre code {
   }
 }
 .highlight {
+    margin-bottom: 5px;
+
   pre code { color: $grey-color; }
   table { margin: 0; }
   .code { width: 99%; }
