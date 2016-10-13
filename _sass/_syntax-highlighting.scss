@@ -4,13 +4,13 @@
 
 pre, code {
   font-family: $monospace-font-family;
-  color: $text-color;
+  color: $background-color;
   background-color: $grey-color-light;
   font-size: ($base-font-size - 2);
 }
 code {
   background: $grey-color-light;
-  color: $text-color;
+  color: $background-color;
   word-break: break-all;
   white-space: normal;
   border-radius: 0;
@@ -32,13 +32,13 @@ pre code {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
-  color: $text-color;
+  color: $background-color;
   span {
     word-break: break-all;
   }
 }
 .highlight {
-  pre code { color: $text-color; }
+  pre code { color: $background-color; }
   table { margin: 0; }
   .code { width: 99%; }
   .lineno { border-right: 2px solid $grey-color }
