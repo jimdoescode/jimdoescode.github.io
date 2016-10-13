@@ -41,7 +41,7 @@ pre code {
   pre code { color: $grey-color; }
   table { margin: 0; }
   .code { width: 99%; }
-  .lineno { border-right: 2px solid $grey-color-light }
+  .lineno { border-right: 2px solid $grey-color }
   .hll { background-color: #515151 }
   .c { color: $grey-color } /* Comment */
   .err { color: #f23539 } /* Error */
@@ -66,20 +66,20 @@ pre code {
   .kn { color: #1187CC } /* Keyword.Namespace */
   .kp { color: #8541b7 } /* Keyword.Pseudo */
   .kr { color: #8541b7 } /* Keyword.Reserved */
-  .kt { color: #FEAA2B } /* Keyword.Type */
+  .kt { color: #ffbf13 } /* Keyword.Type */
   .ld { color: #43B716 } /* Literal.Date */
   .m { color: #f9651f } /* Literal.Number */
   .s { color: #43B716 } /* Literal.String */
   .na { color: #6699cc } /* Name.Attribute */
   .nb { color: $grey-color-dark } /* Name.Builtin */
-  .nc { color: #FEAA2B } /* Name.Class */
+  .nc { color: #ffbf13 } /* Name.Class */
   .no { color: #f23539 } /* Name.Constant */
   .nd { color: #1187CC } /* Name.Decorator */
   .ni { color: $grey-color-dark } /* Name.Entity */
   .ne { color: #f23539 } /* Name.Exception */
   .nf { color: #6699cc } /* Name.Function */
   .nl { color: $grey-color-dark } /* Name.Label */
-  .nn { color: #FEAA2B } /* Name.Namespace */
+  .nn { color: #ffbf13 } /* Name.Namespace */
   .nx { color: #6699cc } /* Name.Other */
   .py { color: $grey-color-dark } /* Name.Property */
   .nt { color: #1187CC } /* Name.Tag */
