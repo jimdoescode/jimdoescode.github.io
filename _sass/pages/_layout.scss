@@ -29,7 +29,7 @@ img {
 
 .sidebar {
   background: $background-color;
-  color: $text-color;
+  color: lighten($text-color, 95%);
 
   .social-links {
     margin-top: 0.5em;
