@@ -4,6 +4,7 @@ p {
   line-height: $base-line-height;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+    color: $text-color;
 }
 
 .notice {
@@ -15,6 +16,7 @@ p {
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: bold;
+    color: $title-color;
 }
 
 blockquote {
