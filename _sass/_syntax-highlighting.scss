@@ -17,12 +17,12 @@ code {
 pre { // only apply for code blocks
   overflow: auto;
   display: block;
-  padding: 1em;
-  margin: 0 0 1em;
+  padding: 0.4em;
+  margin: 0;
   line-height: $base-line-height * 0.925;
   word-break: break-all;
   word-wrap: break-word;
-  border: 1px solid #ccc;
+  border: 0;
   border-radius: 0;
   font-weight: bold;
 }
@@ -31,7 +31,7 @@ pre code {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
-  color: #ccc;
+  color: $text-color;
   span {
     word-break: break-all;
   }
@@ -40,6 +40,7 @@ pre code {
   pre code {
     color: #ddd;
   }
+  .lineno { border-right: 3px solid $text-color }
   .hll { background-color: #515151 }
   .c { color: #999999 } /* Comment */
   .err { color: #f2777a } /* Error */
