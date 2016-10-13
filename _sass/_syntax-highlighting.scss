@@ -9,7 +9,7 @@ pre, code {
   font-size: ($base-font-size - 2);
 }
 code {
-  background: $background-color;
+  background: lighten($background-color, 20%);
   word-break: break-all;
   white-space: normal;
   border-radius: 0;
