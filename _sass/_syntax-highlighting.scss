@@ -37,9 +37,8 @@ pre code {
   }
 }
 .highlight {
-  pre code {
-    color: #ddd;
-  }
+  pre code { color: #ddd; }
+    table { margin: 0; }
   .lineno { border-right: 3px solid $text-color }
   .hll { background-color: #515151 }
   .c { color: #999999 } /* Comment */
