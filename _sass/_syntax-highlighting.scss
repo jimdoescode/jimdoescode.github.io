@@ -5,7 +5,7 @@
 pre, code {
   font-family: $monospace-font-family;
   color: $grey-color-light;
-  background-color: $background-color;
+  background-color: lighten($background-color, 5%);
   font-size: ($base-font-size - 2);
 }
 code {
