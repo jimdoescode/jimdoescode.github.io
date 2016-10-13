@@ -4,13 +4,13 @@
 
 pre, code {
   font-family: $monospace-font-family;
-  color: $background-color;
+  color: $grey-color;
   background-color: #f8f8f8;
   font-size: ($base-font-size - 2);
 }
 code {
   background: #f8f8f8;
-  color: $background-color;
+  color: $grey-color;
   word-break: break-all;
   white-space: normal;
   border-radius: 0;
@@ -32,33 +32,33 @@ pre code {
   white-space: pre;
   overflow: auto;
   word-wrap: normal;
-  color: $background-color;
+  color: $grey-color;
   span {
     word-break: break-all;
   }
 }
 .highlight {
-  pre code { color: $background-color; }
+  pre code { color: $grey-color; }
   table { margin: 0; }
   .code { width: 99%; }
   .lineno { border-right: 2px solid $grey-color-light }
   .hll { background-color: #515151 }
-  .c { color: $background-color } /* Comment */
+  .c { color: $grey-color } /* Comment */
   .err { color: #f23539 } /* Error */
   .k { color: #8541b7 } /* Keyword */
   .l { color: #f9651f } /* Literal */
   .n { color: $grey-color-dark } /* Name */
   .o { color: #1187CC } /* Operator */
   .p { color: $grey-color-dark } /* Punctuation */
-  .cm { color: $background-color } /* Comment.Multiline */
-  .cp { color: $background-color } /* Comment.Preproc */
-  .c1 { color: $background-color } /* Comment.Single */
-  .cs { color: $background-color } /* Comment.Special */
+  .cm { color: $grey-color } /* Comment.Multiline */
+  .cp { color: $grey-color } /* Comment.Preproc */
+  .c1 { color: $grey-color } /* Comment.Single */
+  .cs { color: $grey-color } /* Comment.Special */
   .gd { color: #f23539 } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
   .gh { color: $grey-color-dark; font-weight: bold } /* Generic.Heading */
   .gi { color: #99cc99 } /* Generic.Inserted */
-  .gp { color: $background-color; font-weight: bold } /* Generic.Prompt */
+  .gp { color: $grey-color; font-weight: bold } /* Generic.Prompt */
   .gs { font-weight: bold } /* Generic.Strong */
   .gu { color: #1187CC; font-weight: bold } /* Generic.Subheading */
   .kc { color: #8541b7 } /* Keyword.Constant */
@@ -92,7 +92,7 @@ pre code {
   .mo { color: #f9651f } /* Literal.Number.Oct */
   .sb { color: #43B716 } /* Literal.String.Backtick */
   .sc { color: $grey-color-dark } /* Literal.String.Char */
-  .sd { color: $background-color } /* Literal.String.Doc */
+  .sd { color: $grey-color } /* Literal.String.Doc */
   .s2 { color: #43B716 } /* Literal.String.Double */
   .se { color: #f9651f } /* Literal.String.Escape */
   .sh { color: #43B716 } /* Literal.String.Heredoc */
