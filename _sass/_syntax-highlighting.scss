@@ -43,17 +43,17 @@ pre code {
   .code { width: 99%; }
   .lineno { border-right: 2px solid $grey-color-light }
   .hll { background-color: #515151 }
-  .c { color: $text-color } /* Comment */
+  .c { color: $background-color } /* Comment */
   .err { color: #f2777a } /* Error */
   .k { color: #cc99cc } /* Keyword */
   .l { color: #f99157 } /* Literal */
   .n { color: $grey-color-dark } /* Name */
   .o { color: #66cccc } /* Operator */
   .p { color: $grey-color-dark } /* Punctuation */
-  .cm { color: $text-color } /* Comment.Multiline */
-  .cp { color: $text-color } /* Comment.Preproc */
-  .c1 { color: $text-color } /* Comment.Single */
-  .cs { color: $text-color } /* Comment.Special */
+  .cm { color: $background-color } /* Comment.Multiline */
+  .cp { color: $background-color } /* Comment.Preproc */
+  .c1 { color: $background-color } /* Comment.Single */
+  .cs { color: $background-color } /* Comment.Special */
   .gd { color: #f2777a } /* Generic.Deleted */
   .ge { font-style: italic } /* Generic.Emph */
   .gh { color: $grey-color-dark; font-weight: bold } /* Generic.Heading */
@@ -92,7 +92,7 @@ pre code {
   .mo { color: #f99157 } /* Literal.Number.Oct */
   .sb { color: #99cc99 } /* Literal.String.Backtick */
   .sc { color: $grey-color-dark } /* Literal.String.Char */
-  .sd { color: $text-color } /* Literal.String.Doc */
+  .sd { color: $background-color } /* Literal.String.Doc */
   .s2 { color: #99cc99 } /* Literal.String.Double */
   .se { color: #f99157 } /* Literal.String.Escape */
   .sh { color: #99cc99 } /* Literal.String.Heredoc */
