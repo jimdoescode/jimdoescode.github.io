@@ -9,16 +9,16 @@ tags: ["OpenSSL", "C"]
 This is my first deep dive into OpenSSL and boy oh boy is it complicated and not well documented. Unfortunately that means I can't explain a ton of the reasoning
 behind the decisions I made in my code. It's mostly like that because that's what I found that works.
 
-AndroidPay sends a JSON payload to a server. In that payload are 3 things the tag, the ephemeralPublicKey, and the encryptedMessage (the data). On the server side we
-need the private key which is the companion to the public key that AndroidPay used to encrypt everything. With those 4 things we can then decrypt the encryptedMessage.
+AndroidPay sends a JSON payload to a server. In that payload are 3 things the *tag*, the *ephemeralPublicKey*, and the *encryptedMessage* (the data). On the server side we
+need the private key which is the companion to the public key that AndroidPay used to encrypt everything. With those 4 things we can then decrypt the *encryptedMessage*.
 
 Step 1
 ------
 
-We need to get the private key that resides on the server into a format that OpenSSL can use. It along with the ephemeral public key will be used to generate a shared key
-that can decrypt the message. The documentation says that the private key given in the example is created in the [PKCS8](https://tools.ietf.org/html/rfc5208) format. Luckily
-OpenSSL has a handy container for that called `PKCS8_PRIV_KEY_INFO` and the nice thing is that it allows us to use `BIO` which is OpenSSLs IO wrapper to read the key into
-the `PKCS8_PRIV_KEY_INFO` format. We can also leverage `BIO`s simple base64 decoding capabilities.
+We need to get the private key that resides on the server into a format that OpenSSL can use. It, along with the *ephemeralPublicKey*, will be used to generate a shared key
+that can decrypt the message. The Java example Google provides has a private key which is created with the [PKCS8](https://tools.ietf.org/html/rfc5208) format. Luckily
+OpenSSL has a handy container for that called `PKCS8_PRIV_KEY_INFO` there are also methods that allow us to use `BIO` which is OpenSSL's IO wrapper to convert the base64 encoded key into
+the `PKCS8_PRIV_KEY_INFO` format.
 
 ```c
 PKCS8_PRIV_KEY_INFO *p8;
@@ -36,7 +36,7 @@ p8 = d2i_PKCS8_PRIV_KEY_INFO_bio(bio_mem, NULL);
 BIO_free_all(bio_64);
 ```
 
-Once we have the private key into the `PKCS8_PRIV_KEY_INFO` container there's a nice method that will convert it into an EVP_PKEY which is what we want to use for public
+Once we have the private key into the `PKCS8_PRIV_KEY_INFO` container there's a nice method that will convert it into an `EVP_PKEY` which is what we want to use for our public
 and private key pairs.
 
 ```c
@@ -44,14 +44,14 @@ EVP_PKEY * private_key = EVP_PKCS82PKEY(p8);
 PKCS8_PRIV_KEY_INFO_free(p8);
 ```
 
-After we free up our `p8` variable and we have our private key ready to go.
+After we free up our `p8` variable, we have our private key ready to go.
 
 Step 2
 ------
 
-Now we need to get the ephemeral public key into that `EVP_PKEY` format. This key is a point on a special elliptic curve called NIST P-256 or in OpenSSL it's known as prime256v1.
-The ephemeral public key is base64 encoded so we need to decode it then the octet string aka byte string represents a point along the curve. We can set it using an o2i method which
-means octent to something. (Maybe input??) I don't really know what the 'i' stands for.
+Now we need to get the *ephemeralPublicKey* into that `EVP_PKEY` format. This key is a point on a special elliptic curve named NIST P-256 or in OpenSSL the curve is known as prime256v1.
+The *ephemeralPublicKey* is base64 encoded so you need to decode it first (not shown). Then, with the decoded octet string we can set the point using an o2i method which
+means octet to something (maybe input??) I don't really know what the 'i' stands for but it does set the point correctly.
 
 ```c
 EC_KEY *pubkey = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
@@ -60,26 +60,26 @@ if (o2i_ECPublicKey(&pubkey, ephemeral_pubkey_octet, ephemeral_pubkey_octet_len)
 }
 ```
 
-These methods deal with a different type than the `EVP_PKEY` type we saw in step 1. That's kind of annoying, now we need to convert this `EC_KEY` type so that our public key and
-private key can play nice together. From what I understand `EC_KEY` is a lower level object in OpenSSL and it's advisable to only use those if you really know what you're doing.
+This method deals with a different type than the `EVP_PKEY` type we saw in step 1, so we'll need to convert this `EC_KEY` type to `EVP_PKEY` to get our public and
+private keys to play nice together. From what I understand `EC_KEY` is a lower level abstraction in OpenSSL and it's advisable to only use them if you really know what you're doing.
 I don't, so we need to convert it to the higher level `EVP_PKEY`. I believe `EVP_PKEY`s actually use `EC_KEY`s under the hood and there's actually a nice method to set an `EC_KEY`
-in and `EVP_PKEY`.
+in an `EVP_PKEY`.
 
 ```c
 EVP_PKEY * public_key = EVP_PKEY_new();
 if (!EVP_PKEY_set1_EC_KEY(public_key, pubkey)) {
-    ret = MOBILEPAY_ERROR_COULD_NOT_SET_EPHEMERAL_PUBKEY;
+    ERROR;
 }
 ```
 
-Now we have a public key and a private key. Both are in the same format so they should play nice with each other.
+Now we have a public key and a private key, and both are in the same format.
 
 Step 3
 ------
 
-We now need to use our public and private keys to generate a shared secret key. This shared secret and the ephemeral public key will get concatenated into a single string that we
-can use to generate our decryption key. In order to create the shared secret we need to use the `EVP_PKEY` methods. First we'll create a context container to hold both keys
-and then derive the shared secret.
+We now need to use our public and private keys to generate a shared secret key. This shared secret and the *ephemeralPublicKey* will get concatenated into a single buffer that we
+can use to generate our decryption key. In order to create the shared secret we need to use some `EVP_PKEY` methods. First we'll create a context container to hold both keys
+and then derive the shared secret using that context.
 
 ```c
 EVP_PKEY_CTX *kctx = EVP_PKEY_CTX_new(state->private_key, NULL);
@@ -92,7 +92,7 @@ if (!EVP_PKEY_derive_init(kctx) ||
 }
 ```
 
-This first call to derive will tell us how large the shared secret buffer needs to be. We then use that to allocate a new buffer that the shared secret will go in.
+That call to `EVP_PKEY_derive` above will tell us how large the shared secret buffer needs to be. We then allocate a new buffer to that size and insert the shared secret.
 
 ```c
 unsigned char *shared_secret = OPENSSL_malloc(shared_secret_len);
@@ -102,8 +102,8 @@ if (!EVP_PKEY_derive(kctx, shared_secret, &shared_secret_len)) {
 EVP_PKEY_CTX_free(kctx);
 ```
 
-Now we have our shared secret. This along with the ephemeral public key are what make up the input keying material of the HKDF algorithm that we'll use for generating our
-decryption key so let's concatenate those two together.
+As mentioned above the shared secret is concatenated with the *ephemeralPublicKey*. This makes up what's called the "input keying material" for the HKDF algorithm that's used to generate our
+mac and decryption keys.
 
 ```c
 size_t input_keying_material_len = shared_secret_len + ephemeral_pubkey_octet_len;
@@ -113,14 +113,18 @@ memcpy(input_keying_material + ephemeral_pubkey_octet_len, shared_secret, shared
 OPENSSL_free(shared_secret);
 ```
 
-After this step we should have all the things necessary to validate the input and generate our decryption key.
+There is some slight pointer arithmetic going on to perform the concatenation. I originally tried to use `strcat` but these are raw byte buffers not real strings so it didn't result in the
+desired value.
+
+After this step we should have all the things necessary to generate our AndroidPay decryption key.
 
 Step 4
 ------
 
-To generate the encryption key we need to use the [HKDF algorithm](https://tools.ietf.org/html/rfc5869) with a SHA256 hash. This means we'll need to use the SHA256 message digest
-constant provided by OpenSSL. Since it's a constant we don't need to worry about cleaning it up which is nice. We'll then take that constant and run it through an HMAC as per the
-HKDF algorithm's extract step. As part of the HMAC we don't include a salt according to the AndroidPay spec and we use our input_keying_material that we generated previously.
+In order to generate the encryption key we need to use the [HKDF algorithm](https://tools.ietf.org/html/rfc5869) with a SHA256 hash. This means we'll need to use the SHA256 message digest (MD)
+constant provided by OpenSSL. Since it's a constant we don't need to worry about cleaning it up at the end which is nice. We'll then take that constant and run it through an HMAC 
+as per the HKDF algorithm's extract step. [According to AndroidPay](https://developers.google.com/android-pay/integration/payment-token-cryptography#decrypting-the-payment-token) 
+we specify a NULL salt and use our input keying material that was generated previously in the HMAC.
 
 ```c
 const EVP_MD *sha256 = EVP_get_digestbynid(NID_sha256);
@@ -132,9 +136,12 @@ if (HMAC(sha256, NULL, 0, input_keying_material, input_keying_material_len, prc,
 }
 ```
 
-This gives us the pseudo-random characters we need to put in a key that we'll then feed through the HKDF expand step. One thing to keep in mind is that we're dealing with a SHA256
-hash for HKDF. This results in only a single iteration through the HKDF expansion alogrithm which greatly simplifies our code. As per the [AndroidPay docs](https://developers.google.com/android-pay/integration/payment-token-cryptography#decrypting-the-payment-token)
-we use "Android" as the HKDF info.
+This gives us some pseudo-random characters that need to be put into an `EVP_PKEY` container. We then feed `EVP_PKEY` through the HKDF expand step. As per 
+the [AndroidPay docs](https://developers.google.com/android-pay/integration/payment-token-cryptography#decrypting-the-payment-token) we use the ASCII 
+character string "Android" as the info component.
+
+One thing to keep in mind is that we're dealing with a SHA256 hash for HKDF. This results in only a single iteration through the HKDF expansion 
+step which greatly simplifies our code.
 
 ```c
 unsigned char T[EVP_MD_size(sha256)];
@@ -157,9 +164,9 @@ EVP_MD_CTX_free(hmac);
 EVP_PKEY_free(prk);
 ```
 
-After one iteration through HKDF expansion we should have a single 256 bit string. The first half of those bits (128 or 16 bytes) are the symmetric key, the second half are the mac key.
-We'll use the symmetric key to decrypt the encrypted message and we'll use the mac key to validate the tag and make sure that we are decrypting something that actually came from
-our AndroidPay client.
+After a single iteration through the HKDF expansion we should have a 256 bit filled buffer. The first 128 bit, or 16 byte, half is the symmetric encryption key, the second half 
+is the mac key. We'll use the mac key to validate the *tag* value and make sure that we are decrypting something that actually came from
+our AndroidPay client. The symmetric encryption key is used to decrypt the *encryptedMessage*. 
 
 ```c
 unsigned char *encryption_key = OPENSSL_malloc(16);
@@ -174,9 +181,9 @@ We're almost ready to decrypt the message now.
 Step 5
 ------
 
-Before we do the decryption we want to make sure that the tag value that was sent with the AndroidPay payload is valid. That will indicate that this is a valid request and we are
-clear to decrypt it. The tag value should be the result of an HMAC with a SHA256 hash of the mac_key and the encrypted_message. We'll once again use the `EVP_MD` for the SHA256
-message digest. Make sure the encrypted message is base 64 decoded.
+Before we do the decryption we want to make sure that the *tag* value that was sent with the AndroidPay payload is valid. That will indicate that this is a valid request and we are
+clear to decrypt it. The *tag* value should be the result of an HMAC with a SHA256 hash of the previously generated mac key and the *encryptedMessage*. We'll once again use the `EVP_MD` 
+for the SHA256 message digest. Make sure the *encryptedMessage* is base64 decoded (not shown).
 
 ```c
 const EVP_MD *sha256 = EVP_get_digestbynid(NID_sha256);
@@ -197,14 +204,14 @@ if (CRYPTO_memcmp(tag, &tag_comparison, tag_len)) {
 }
 ```
 
-We've now validated the AndroidPay data so we're clear to decrypt.
+We've now validated the AndroidPay client's data so we're clear to decrypt.
 
 Step 6
 ------
 
-Decrypting the encrypted data is pretty straight forward if you've made it to this point. We just need to make sure the encrypted_message is base 64 decoded then run it through
-the appropriate cipher. For AndroidPay the cipher is AES128 CTR mode with a zero IV. I don't know what that means but OpenSSL has functions and parameters that share that name
-so we can use those.
+Decrypting the *encryptedMessage* is pretty straight forward if you've made it to this point. We just need to make sure the *encryptedMessage* is base64 decoded (not shown) then run it through
+the appropriate cipher. According to [the documentation](https://developers.google.com/android-pay/integration/payment-token-cryptography#decrypting-the-payment-token) the cipher is AES128 CTR 
+mode with a zero IV. I don't know what that means but OpenSSL has functions and parameters that share that name so we can use those.
 
 ```c
 EVP_CIPHER_CTX *decode_ctx = EVP_CIPHER_CTX_new();
@@ -222,13 +229,13 @@ unencrypted_len += final_unencrypted_len;
 unencrypted_message[unencrypted_len] = '\0';
 ```
 
-A few things we need to be mindful of, the unencrypted lengths provided need to be set to something otherwise it causes errors, also you can't just reuse the same length variable
-in the final step as you did in the update step. The final step isn't additive so you need to make sure you're moving the pointer and using a new length variable. Finally, the
-base 64 length we use to allocate the unencrypted_message buffer is going to be larger than the message data so we need to make sure that we properly terminate the message at the
-correct spot. Otherwise you could get garbage in the message buffer.
+A few things we need to be mindful of, the unencrypted lengths used in `EVP_DecryptUpdate` and `EVP_DecryptFinal_ex` need to be set to something, otherwise it causes errors. Also 
+you can't just reuse the same length variable for both those methods. `EVP_DecryptFinal_ex` isn't additive so you need to make sure you're moving the pointer and using a new length 
+variable. Finally, the base64 length we use to allocate the unencrypted_message buffer is always going to be larger than the unencrypted message data itself so we need to make sure that we 
+properly terminate the data at the correct spot. Otherwise you could get garbage at the end of the unencrypted message buffer.
 
 Conclusion
 ----------
 
 I'm not entirely sure why some of these things are the way they are but once it's all together the decryption process seems pretty logical. This was my first dive into the OpenSSL
-codebase and I'm not completely convinced that I got everything correct but it works and hopefully doesn't have any major issues.
+codebase and I'm not completely convinced that I got everything correct, but, it works and hopefully doesn't have any major issues.
