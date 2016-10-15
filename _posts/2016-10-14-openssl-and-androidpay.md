@@ -18,6 +18,7 @@ We need to get the private key that resides on the server into a format that Ope
 that can decrypt the message. The documentation says that the private key given in the example is created in the [PKCS8](https://tools.ietf.org/html/rfc5208) format. Luckily
 OpenSSL has a handy container for that called `PKCS8_PRIV_KEY_INFO` and the nice thing is that it allows us to use `BIO` which is OpenSSLs IO wrapper to read the key into
 the `PKCS8_PRIV_KEY_INFO` format. We can also leverage `BIO`s simple base64 decoding capabilities.
+
 ```c
 PKCS8_PRIV_KEY_INFO *p8;
 BIO *bio_64 = BIO_new(BIO_f_base64());
