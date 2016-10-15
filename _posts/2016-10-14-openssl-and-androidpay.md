@@ -1,8 +1,7 @@
 ---
 layout: "post"
-author: "jsaunders"
-title: "OpenSSL and AndroidPay
-======================"
+author: "jim"
+title: "OpenSSL and AndroidPay"
 date: "2016-10-14 18:12:01"
 ---
 
@@ -57,7 +56,6 @@ EC_KEY *pubkey = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
 if (o2i_ECPublicKey(&pubkey, ephemeral_pubkey_octet, ephemeral_pubkey_octet_len) == NULL) {
     ERROR;
 }
-
 ```
 
 These methods deal with a different type than the `EVP_PKEY` type we saw in step 1. That's kind of annoying, now we need to convert this `EC_KEY` type so that our public key and
@@ -90,7 +88,6 @@ if (!EVP_PKEY_derive_init(kctx) ||
     !EVP_PKEY_derive(kctx, NULL, &shared_secret_len)) {
     ERROR;
 }
-
 ```
 
 This first call to derive will tell us how large the shared secret buffer needs to be. We then use that to allocate a new buffer that the shared secret will go in.
