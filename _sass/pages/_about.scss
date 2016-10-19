@@ -7,9 +7,14 @@
 	}
 }
 
-@include media-query($screen-sm-min) {
+@include media-query($screen-md-min) {
 	.profile-pic {
 		width: 100%;
 		text-align: center;
+		
+		img {
+			width: 100%;
+			max-width: 150px;
+		}
 	}
 }
