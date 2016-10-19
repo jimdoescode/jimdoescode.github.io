@@ -1,19 +1,1 @@
-.profile-pic {
-	float: left;
-	margin-right: 1em;
-	width: 100%;
-	text-align: center;
-	img {
-		width: 100%;
-		max-width: 350px;
-	}
-}
 
-@include media-query($screen-md-min) {
-	.profile-pic {
-		width: auto;
-		img {
-			width: 9em;
-		}
-	}
-}
