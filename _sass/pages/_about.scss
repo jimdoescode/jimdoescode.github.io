@@ -1,9 +1,16 @@
 .intro {
 	padding: 0;
 	margin: 0;
+	
+	.profile-pic {
+		text-align: center;
+		max-width: 350px;
+	}
+	
+	.blurb, .profile-pic {
+		padding: 0;
+		margin: 0;
+	}
 }
-.profile-pic {
-	padding-left: 0;
-	margin-left: 0;
-}
+
 
