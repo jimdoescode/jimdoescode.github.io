@@ -127,7 +127,7 @@ as per the HKDF algorithm's extract step. [According to AndroidPay](https://deve
 we specify a NULL salt and use our input keying material that was generated previously in the HMAC.
 
 ```c
-const EVP_MD *sha256 = EVP_get_digestbynid(NID_sha256);
+const EVP_MD *sha256 = EVP_sha256();
 unsigned char *prc;
 unsigned int prc_len = EVP_MD_size(sha256);
 
@@ -186,7 +186,7 @@ clear to decrypt it. The *tag* value should be the result of an HMAC with a SHA2
 for the SHA256 message digest. Make sure the *encryptedMessage* is base64 decoded (not shown).
 
 ```c
-const EVP_MD *sha256 = EVP_get_digestbynid(NID_sha256);
+const EVP_MD *sha256 = EVP_sha256();
 unsigned char tag_comparison[EVP_MD_size(sha256)];
 unsigned int tag_comparison_len;
 
