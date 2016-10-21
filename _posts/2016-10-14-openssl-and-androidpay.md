@@ -3,7 +3,7 @@ layout: "post"
 author: "jim"
 title: "OpenSSL and AndroidPay"
 date: "2016-10-14 18:12:01"
-tags: ["OpenSSL", "C"]
+tags: ["C", "OpenSSL", "AndroidPay"]
 ---
 
 This is my first deep dive into OpenSSL and boy oh boy is it complicated and not well documented. Unfortunately that means I can't explain a ton of the reasoning

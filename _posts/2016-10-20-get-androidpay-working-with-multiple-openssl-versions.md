@@ -3,7 +3,7 @@ layout: "post"
 author: "jim"
 title: "Get AndroidPay working with multiple OpenSSL versions"
 date: "2016-10-20 21:48:04"
-tags: [c,openssl,androidpay]
+tags: ["C", "OpenSSL", "AndroidPay"]
 ---
 
 In a [previous post]({% post_url 2016-10-14-openssl-and-androidpay %}) we went over how to 
