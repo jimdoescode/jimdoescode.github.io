@@ -8,15 +8,15 @@ tags: [go, golang, type-conversion, type-assertion]
 
 Just learned an interesting subtlety about Go. There are two ways to "cast" values. I put cast in quotes because one isn't really casting but it's just the general term I always use for saying "change on type to another one".
 
-The first one I was pretty used to, [type conversion][conversion]:
+The first one I was pretty used to, [type conversion](http://golang.org/ref/spec#Conversions):
 {% highlight go linenos %}
 var x int = 5
 var x64 int64 = int64(x)
 {% endhighlight %}
 
-The one I was unaware of is [type assertion][assertion]:
+The one I was unaware of is [type assertion](http://golang.org/ref/spec#Type_assertions):
 {% highlight go linenos %}
-var x interface{} = 5
+var x interface{} = int64(5)
 var x64 int64 = x.(int64)
 {% endhighlight %}
 
@@ -24,5 +24,5 @@ So what's the difference? Well **conversion** should be used when you are dealin
 
 Pretty nifty!
 
-[conversion]: http://golang.org/ref/spec#Conversions
-[assertion]: http://golang.org/ref/spec#Type_assertions
+> ######small aside
+> I had to wrap the number 5 in an int64 when doing `var x interface{} = int64(5)`. Check out [this post]() to find out why 
