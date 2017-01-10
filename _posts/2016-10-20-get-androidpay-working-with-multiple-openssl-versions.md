@@ -23,7 +23,7 @@ new `EVP_MD_CTX` instance is with a call to `EVP_MD_CTX_create()`.
 We need to reconcile this and ideally we need a solution that works in both instances. This 
 is where we can use a preprocessor conditional.
 
-```c
+{% highlight c linenos %}
 EVP_MD_CTX *hmac;
 
 #if OPENSSL_VERSION_NUMBER >= 0x10100000L 
@@ -31,25 +31,25 @@ EVP_MD_CTX *hmac;
 #else
     hmac = EVP_MD_CTX_create();
 #endif
-```
+{% endhighlight %}
 
 This code snippet will only surface the method call that corresponds to the correct OpenSSL 
 API. Now since there are different `EVP_MD_CTX` creation functions of course that means 
 there are different functions to clean up `EVP_MD_CTX` instances so we need to use the same 
 preprocessor conditionals.
 
-```c
+{% highlight c linenos %}
 #if OPENSSL_VERSION_NUMBER >= 0x10100000L 
     EVP_MD_CTX_free(hmac);
 #else
     EVP_MD_CTX_destroy(hmac);
 #endif
-```
+{% endhighlight %}
 
 The next incompatibility deals with how the `HMAC()` function works. In versions >= 1.1.0 
 we could use `NULL` and `0` if we didn't want to specify a salt for the HKDF algorithm.
 
-```c
+{% highlight c linenos %}
 const EVP_MD *sha256 = EVP_sha256();
 unsigned char *prc;
 unsigned int prc_len = EVP_MD_size(sha256);
@@ -57,7 +57,7 @@ unsigned int prc_len = EVP_MD_size(sha256);
 if (HMAC(sha256, NULL, 0, input_keying_material, input_keying_material_len, prc, &prc_len) == NULL) {
     ERROR;
 }
-```
+{% endhighlight %}
 
 In prior version that call results in an error because a key (what we call a salt in HKDF) 
 has to be specified and the length has to be greater than zero. Luckily the
@@ -65,7 +65,7 @@ has to be specified and the length has to be greater than zero. Luckily the
 covers this by telling us that not providing a salt is equivalent to 32 zeroed bytes. So
 we'll create a key that's 32 zeroed bytes and make the length of our key 32.
 
-```c
+{% highlight c linenos %}
 const EVP_MD *sha256 = EVP_sha256();
 unsigned char *prc;
 unsigned int prc_len = EVP_MD_size(sha256);
@@ -75,7 +75,7 @@ const int salt_len = 32;
 if (HMAC(sha256, salt, salt_len, input_keying_material, input_keying_material_len, prc, &prc_len) == NULL) {
     ERROR;
 }
-```
+{% endhighlight %}
 
 Remember that `0` is different from `\0` we basically want to use `NULL` values and `0` 
 isn't a `NULL` value. Doing this will work in all versions of OpenSSL so we don't need any 
