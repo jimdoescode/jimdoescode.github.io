@@ -24,5 +24,4 @@ So what's the difference? Well **conversion** should be used when you are dealin
 
 Pretty nifty!
 
-> ######small aside
-> I had to wrap the number 5 in an int64 when doing `var x interface{} = int64(5)`. Check out [this post]() to find out why 
+> I had to wrap the number 5 in an int64 when doing `var x interface{} = int64(5)`. Check out [this post]({% post_url 2017-01-09-default-types-for-constants-in-go %}) to find out why 
