@@ -6,7 +6,7 @@ date: "2017-01-09 20:23:43"
 tags: [go,golang,type-conversion,type-assertion,constants]
 ---
 
-It was recently brought to my attention that I had an error in a [previous post]({% post_url 2015-04-23-type-conversion-vs-type-assertion-in-go %). The error centered around setting a constant value of
+It was recently brought to my attention that I had an error in a [previous post]({% post_url 2015-04-23-type-conversion-vs-type-assertion-in-go %}). The error centered around setting a constant value of
 5 to an interface. Here's what I was doing:
 {% highlight go linenos %}
 var x interface{} = 5
