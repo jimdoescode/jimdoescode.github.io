@@ -64,6 +64,7 @@ a.brand-title {
   font-family: $heading-font-family;
   font-weight: bold;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .brand-tagline {
@@ -132,8 +133,14 @@ a.post-author {
   color: $secondary;
 }
 
-.post-description {
-  line-height: 1.8em;
+.post-header {
+	margin: $paragraph-margin;
+}
+
+.post-description,
+.post-content {
+  font-size: 1.3em;
+  line-height: 1.4;
 }
 
 .post-meta {
@@ -151,7 +158,6 @@ a.post-tag {
   font-size: 80%;
   display: inline-block;
 }
-
 
 .post-images {
   margin: 1em 0;

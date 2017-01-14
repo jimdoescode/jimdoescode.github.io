@@ -1,13 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 
 // Our variables
-$base-font-family: Arial, sans-serif;
-$heading-font-family: 'Helvetica Neue', Helvetica, $base-font-family;
+$base-font-family: ff-dagny-web-pro,Dagny Pro,Hevetica Neue,Heveltica,Arial,sans-serif;
+$heading-font-family: Ampersand,ff-more-web-pro,More Pro,Georgia,Times,serif; 
 $monospace-font-family: 'Source Code Pro', Menlo, monospace;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
 $base-line-height: 1.5;
-
+$paragraph-margin: 0 0 1.6em;
 $spacing-unit:     30px;
 
 // Colors

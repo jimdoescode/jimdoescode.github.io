@@ -1,10 +1,10 @@
-body,
-p {
+body {
   font-family: $base-font-family;
   line-height: $base-line-height;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-    color: $text-color;
+  color: $text-color;
+  font-size: $base-font-size;
 }
 
 .notice {
@@ -15,8 +15,12 @@ p {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
-  font-weight: bold;
-    color: $title-color;
+  font-weight: 500;
+  color: $title-color;
+}
+
+p {
+	margin: $paragraph-margin;
 }
 
 blockquote {

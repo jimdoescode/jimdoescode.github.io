@@ -38,7 +38,7 @@ pre code {
   }
 }
 .highlight {
-  margin-bottom: 10px;
+  margin: $paragraph-margin;
 
   pre code { color: $grey-color; }
   table { margin: 0; }
