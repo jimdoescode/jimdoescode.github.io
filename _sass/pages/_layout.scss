@@ -121,6 +121,10 @@ section.post {
 a.post-title {
   color: $title-color;
   margin-bottom: 0.2em;
+  
+  :hover {
+  	text-decoration: underline;
+  }
 }
 
 .post-avatar {
