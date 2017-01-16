@@ -88,15 +88,19 @@ a.brand-title {
   display: inline-block;
   *display: inline;
   zoom: 1;
-}
-
-.nav-item a {
-  background: transparent;
-  color: $secondary;
-  margin-top: 1em;
-  letter-spacing: 0.05em;
-  text-transform: capitalize;
-  font-size: 85%;
+  
+  a {
+    background: transparent;
+    color: $secondary;
+    margin-top: 1em;
+    letter-spacing: 0.05em;
+    text-transform: capitalize;
+    font-size: 85%;
+    
+    &:hover {
+      color: lighten($secondary, 10%);
+    }
+  }
 }
 
 .content-subhead {
@@ -122,8 +126,8 @@ a.post-title {
   color: $title-color;
   margin-bottom: 0.2em;
   
-  :hover {
-  	text-decoration: underline;
+  &:hover {
+  	color: lighten($title-color, 10%);
   }
 }
 
