@@ -47,4 +47,4 @@ Because we create our hash from a userId we'll get the same result in `val` for 
 users by threshold. If we raise the threshold more users will be enabled, lowering the threshold will reduce the set of users.
 
 The [feature flagging code](https://github.com/jimdoescode/feature) I wrote adds some more functionality around this, but the 
-core is the algorithm I showed above. 
+core is the algorithm I showed above.    
