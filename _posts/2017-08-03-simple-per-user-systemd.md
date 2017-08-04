@@ -48,6 +48,6 @@ $ systemctl --user enable slackbot
 That should output something like
 ```
 Created symlink from ~/.config/systemd/user/default.target.wants/slackbot.service to ~/.config/systemd/user/slackbot.service.
-``
+```
 
 Memory dump complete. Hopefully this helps.
