@@ -50,4 +50,4 @@ That should output something like
 Created symlink from ~/.config/systemd/user/default.target.wants/slackbot.service to ~/.config/systemd/user/slackbot.service.
 ```
 
-Memory dump complete. Hopefully this helps.
+[Here's a helpful resource.](https://wiki.archlinux.org/index.php/Systemd/User) Memory dump complete.
