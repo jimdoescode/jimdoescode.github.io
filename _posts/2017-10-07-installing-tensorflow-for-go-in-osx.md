@@ -48,7 +48,7 @@ All that stuff went smoothly. I'm not sure if I answered all the questions asked
 After a successful build I didn't really want to copy the libtensorflow.so file to `/usr/local/lib`, instead I wanted to just specify it via
 the test command. I misread the docs, and thought they said to use *only* the variable `DYLD_LIBRARY_PATH` so I ran the test command with that.
 ```sh
-$ DYLD_LIBRARY_PATH=/Path/to/the/folder/with/libtensorflow go test github.com/tensorflow/tensorflow/tensorflow/go
+$ DYLD_LIBRARY_PATH=${GOPATH}/src/github.com/tensorflow/tensorflow/bazel-bin/tensorflow go test github.com/tensorflow/tensorflow/tensorflow/go
 ```
 This gave the error output indicating that it wasn't able to find the libtensorflow.so library.
 ```
