@@ -17,10 +17,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: 500;
   color: $title-color;
+  margin: 1em 0 0;
 }
 
 p {
 	opacity: 0.75;
+    margin: $paragraph-margin;
 }
 
 blockquote {

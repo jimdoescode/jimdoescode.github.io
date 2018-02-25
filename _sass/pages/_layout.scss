@@ -121,7 +121,6 @@ section.post {
 
 a.post-title {
   color: $title-color;
-  margin-bottom: 0.2em;
   
   &:hover {
   	color: lighten($title-color, 10%);
@@ -147,12 +146,12 @@ a.post-author {
 .post-meta {
   color: #999;
   font-size: 90%;
-  margin: 1em 0;
+  margin: 1em 0 0;
 }
 
 a.post-tag {
   text-transform: capitalize;
-  margin: 0.1em;
+  margin: 0.3em;
   padding: 0.3em 1em;
   color: $white;
   background-color: $primary;

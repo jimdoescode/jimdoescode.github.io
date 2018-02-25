@@ -6,9 +6,7 @@ layout: default
   <header class="post-header">
     <h1>{{ page.title }}</h1>
     <p class="post-meta">
-      {% for tag in page.tags %}
-      <a class="post-tag {{ tag | slugize }}" href="{{ site.url }}/tags/#{{ tag }}"><i class="fa fa-tag"></i> {{ tag }}</a>
-      {% endfor %}
+      {% for tag in page.tags %}<a class="post-tag {{ tag | slugize }}" href="{{ site.url }}/tags/#{{ tag }}"><i class="fa fa-tag"></i> {{ tag }}</a>{% endfor %}
     </p>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • <a class="post-author" href="{{ site.data.authors[page.author].site }}" title="{{ site.data.authors[page.author].bio }}" data-toggle="tooltip" data-placement="bottom">{{ site.data.authors[page.author].name }}</a>{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
   </header>
