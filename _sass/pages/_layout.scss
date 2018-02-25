@@ -29,8 +29,9 @@ img {
 
 .sidebar {
   background: $background-color;
-  color: $grey-color-light;
-
+  color: $white;
+  font-weight: 300;
+  span {opacity: 0.5;}
   .social-links {
     margin-top: 0.5em;
     ul {
@@ -59,19 +60,15 @@ img {
 }
 
 a.brand-title {
-  color: $grey-color-light;
+  color: $white;
   font-size: 2em;
   font-family: $heading-font-family;
-  font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .brand-tagline {
   display: block;
-  margin-top: 0.5em;
-  font-weight: 300;
-  color: $grey-color-light;
 }
 
 .nav {
@@ -139,10 +136,6 @@ a.post-title {
 
 a.post-author {
   color: $secondary;
-}
-
-.post-header {
-	margin: $paragraph-margin;
 }
 
 .post-description,
