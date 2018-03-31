@@ -24,6 +24,7 @@ img {
   top: auto;
   margin: 0 auto;
   padding: 3em 0;
+  font-size: $base-font-size;
 }
 
 .sidebar {
@@ -115,8 +116,8 @@ a.brand-title {
 }
 
 section.post {
-  padding-bottom: 1em;
-  margin: 1em auto;
+  padding-bottom: $base-font-size;
+  margin: $base-font-size auto;
 }
 
 
