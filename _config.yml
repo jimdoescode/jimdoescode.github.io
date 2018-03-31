@@ -4,7 +4,8 @@ email: jim+howdy@jimsaunders.net
 description: > # this means to ignore newlines until "baseurl:"
   Piledriving parsers & leg dropping lexers
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "https://jimsaunders.net" # the base hostname & protocol for your site
+url: https://jimsaunders.net # the base hostname & protocol for your site
+enforce_ssl: jimsaunders.net
 owner: JimDoesCode
 social:    
   twitter: JimDoesCode
