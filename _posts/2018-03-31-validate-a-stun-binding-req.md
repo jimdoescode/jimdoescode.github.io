@@ -38,13 +38,14 @@ length, value). So the bytes of the USERNAME attribute in this STUN binding requ
 0x00 0x06                               # This is a USERNAME 
 0x00                                    # Padding
 0x11                                    # The length is 17 bytes long
-0x36 0x6b 0x31 0x68 0x68 0x32 0x67 0x64 # User name 6k1hh2gd
+0x36 0x6b 0x31 0x68 0x68 0x32 0x67 0x64 # Answer User name 6k1hh2gd
 0x3a                                    # Colon separator
-0x38 0x62 0x63 0x31 0x64 0x62 0x61 0x34 # Nonce 8bc1dba4
+0x38 0x62 0x63 0x31 0x64 0x62 0x61 0x34 # Offer User name 8bc1dba4
 ```
 
-The nonce after the colon (8bc1dba4) is to make sure that the MESSAGE-INTEGRITY attribute is 
-unique on each request. It also makes the ice-pwd harder to determine.
+The user name after to colon (8bc1dba4) is the user defined by the client when it made its initial SDP offer. 
+I'm not going to go into the offer/answer flow of SDP in this post but just know that this is a value that is 
+handed to you by the client. 
 
 ## Finding the MESSAGE-INTEGRITY
 
