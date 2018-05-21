@@ -43,13 +43,13 @@ length, value). So the bytes of the USERNAME attribute in this STUN binding requ
 0x38 0x62 0x63 0x31 0x64 0x62 0x61 0x34 # Offer User name 8bc1dba4
 ```
 
-The user name after to colon (8bc1dba4) is the user defined by the client when it made its initial SDP offer. 
+The user name after the colon (8bc1dba4) is the user defined by the client when it made its initial SDP offer. 
 I'm not going to go into the offer/answer flow of SDP in this post but just know that this is a value that is 
 handed to you by the client. 
 
 ## Finding the MESSAGE-INTEGRITY
 
-To verify no one has tampered with this STUN binding request we need to attempt to compute 
+To verify no one has tampered with this STUN binding request we need to compute 
 the same MESSAGE-INTEGRITY hash that's in the request. The MESSAGE-INTEGRITY attribute is 
 identified by the bytes `0x0008` followed by a two byte pad `0x00` and the length of the hash 
 (`0x14` or 20). So the MESSAGE-INTEGRITY attribute of our request is
@@ -64,8 +64,8 @@ identified by the bytes `0x0008` followed by a two byte pad `0x00` and the lengt
 
 ## Verifying the request
 
-We calculate this by HMAC-SHA1ing all the bytes up to the MESSAGE-INTEGITY attribute with 
-the ice-pwd that was we sent to the client in the SDP answer (fpllngzieyoh43e0133ols).
+We calculate this by HMAC-SHA1ing all the bytes *up to* the MESSAGE-INTEGITY bytes with 
+the ice-pwd attribute that was sent to the client in the SDP answer (fpllngzieyoh43e0133ols).
 ```
 HMAC-SHA1(
     0x00 0x01 0x00 0x50 0x21 0x12 0xa4 0x42  
