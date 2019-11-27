@@ -6,9 +6,9 @@ ul.tag-cloud {
 
   li {
     display: inline-block;
-    margin-right: .5em;
     a.post-tag {
       border-radius: 0.2em;
+      margin: 5px;
     }
   }
 }
