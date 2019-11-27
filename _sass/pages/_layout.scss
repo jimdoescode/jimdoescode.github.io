@@ -142,7 +142,7 @@ a.post-author {
 .post-description,
 .post-content {
   font-size: $base-font-size;
-  line-height: 1.6;
+  line-height: $base-line-height;
 }
 
 .post-meta {
