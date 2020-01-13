@@ -1,16 +1,17 @@
 .intro {
 	padding: 0;
-	margin: $paragraph-margin;
+	margin: 0;
 	
 	.profile-pic {
-		text-align: center;
+		border-radius: 2%;
 		max-width: 350px;
-		
-		img { border-radius: 2%; }
+		margin: $paragraph-margin;
 	}
 	
 	.blurb { padding-right: 0; }
-	.blurb, .profile-pic { padding-left: 0; }
+	.blurb, .profile-pic { 
+		padding-left: 0; 
+	}
 }
 
 
