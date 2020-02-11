@@ -2,7 +2,7 @@
 layout: "post"
 author: "jimdoescode"
 title: "Run composer install from code"
-date: "2018-03-31 13:50:14"
+date: "2020-02-11 13:50:14"
 tags: [php,composer,deployment]
 ---
 
