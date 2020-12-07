@@ -15,5 +15,5 @@ $ xmllint --schema your.xsd your.xml --noout
 If the XML matches the schema defined in the XSD you should see output like:
 
 ```sh
-$ your.xml validates
+your.xml validates
 ```
