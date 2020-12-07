@@ -14,9 +14,9 @@ $ ffmpeg -i Video\ with\ Subtitles.mkv -vcodec copy -acodec copy -vf subtitles=V
 
 There are a couple things to note with this command.
  * I added the `vcodec` and `acodec` sections jic you want to change the encoding on either of those streams in the file.
- * If you need to use a subtitle stream other than the first one you can specify it like `subtitles=video.mkv:si=X` where `X` is the zero based index of the subtitle streams.  
+ * To use an alternate subtitle stream: `subtitles=video.mkv:si=X` where `X` is the zero based index of all the subtitle streams in the video file.  
  * It's probably most helpful to first run an `ffprobe` on the video file to see where all the streams are.
 
-For more options on how to burn subtitles into a video stream check out the ffmpeg wiki http://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo
+For more options on how to burn subtitles into a video stream check out the ffmpeg wiki [http://trac.ffmpeg.org/wiki/HowToBurnSubtitlesIntoVideo]
 
-Also check out the ffmpeg docs on the subtitles filter http://ffmpeg.org/ffmpeg-filters.html#subtitles-1
+Also check out the ffmpeg docs on the subtitles filter [http://ffmpeg.org/ffmpeg-filters.html#subtitles-1]
