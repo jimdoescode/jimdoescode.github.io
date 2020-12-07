@@ -1,9 +1,9 @@
 ---
 layout: "post"
 author: "jimdoescode"
-title: "Include options when debugging with lldb"
+title: "Terminal Quick Tip - Include options when debugging with lldb"
 date: "2017-03-27 23:09:54"
-tags: ["c++", "debugger", "lldb"]
+tags: ["quicktip", "terminal", "c++", "debugger", "lldb"]
 ---
 
 Took me a bit of googling to figure this out. I needed to include some options to a command
