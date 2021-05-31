@@ -24,13 +24,13 @@ img {
   top: auto;
   margin: 0 auto;
   padding: 3em 0;
-  font-size: $base-font-size;
 }
 
 .sidebar {
   background: $background-color;
   color: $white;
   font-weight: 300;
+  font-size: $small-font-size;
   span {opacity: 0.5;}
   .social-links {
     margin-top: 0.5em;
@@ -150,7 +150,7 @@ a.post-author {
 
 .post-meta {
   color: #999;
-  font-size: 90%;
+  font-size: 60%;
   margin: 1em 0 0;
   opacity: 1;
 }
@@ -246,11 +246,13 @@ a.post-tag {
 footer {
   text-align: center;
   padding: 3em 0;
+  font-size: $small-font-family;
 }
 
 .related-articles {
   h4 {
     font-family: $base-font-family;
+    font-size: $small-font-family;
     margin-bottom: 0.5em;
   }
   ul {
