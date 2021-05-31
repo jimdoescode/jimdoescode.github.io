@@ -20,6 +20,14 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1em 0 0;
 }
 
+h1 {
+  font-size: $base-font-size * 2;
+}
+
+h2 {
+  font-size: $base-font-size * 1.5;
+}
+
 p {
 	opacity: 0.75;
     margin: $paragraph-margin;
