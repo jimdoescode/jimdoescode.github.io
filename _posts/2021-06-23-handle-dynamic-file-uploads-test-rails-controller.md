@@ -19,7 +19,7 @@ person = Person.create(dob: '01/01/1970', name: 'Test Guy') # This creates a new
 csv = Tempfile.new('test.csv')
 # Write the header
 csv.write("ID,DOB,Name\n")
-@ Write the data 
+# Write the data 
 csv.write("#{person.id},#{person.dob},#{person.name}\n"
 csv.rewind
 
