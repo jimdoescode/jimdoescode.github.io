@@ -13,11 +13,15 @@ The error was "Unknown named parameter $routes" occuring on line 39 of `Slim\Han
 return call_user_func_array($callable, $routeArguments);
 ```
 
-I use `RequestResponseArgs` so that I can have named parameters in my route functions. It just makes things so much cleaner. Since I didn't write that class and it worked just fine in PHP 7.4 I immediately thought this was something that was changed in PHP 8. The problem was it wasn't immediately obvious what had occurred. In that line there is no variable named `$routes` and the `call_user_func_array` method didn't look like it was being used improperly. So what's the deal?
+I use `RequestResponseArgs` to have named parameters in my route functions. It just makes things so much easier to follow. 
 
-After some searching around I can across [this article](https://chrislloyd.co/fixing-laravel-php-8-error-unknown-named-parameter-error/) which was describing a similar problem in Laravel. It mentioned that there was a change in PHP 8 to the way `call_user_func_array` and similar methods work. [Here is the description of that change](https://wiki.php.net/rfc/named_params#call_user_func_and_friends). Basically it boils down to how `call_user_func_array` operates when given an associative array. Prior to PHP 8 keys would be ignored when passing an associative array in. Now, with named parameters, array keys matter on that associative array. So in our example we have an array with a key named "routes" but the function we're calling doesn't take a parameter named "routes" so PHP 8 throws an error. 
+Since I didn't write that class and it worked just fine in PHP 7.4 I immediately thought this was something that was changed in PHP 8. The problem was it wasn't immediately obvious what had occurred. In that line there is no variable named `$routes` and the `call_user_func_array` method didn't look like it was being used improperly. So what's the deal?
 
-The fix to this is quite simple. Strip the keys from the associative array:
+After some searching around I can across [this article](https://chrislloyd.co/fixing-laravel-php-8-error-unknown-named-parameter-error/) which was describing a similar problem in Laravel. It mentioned that there was a change in PHP 8 to the way `call_user_func_array` and similar methods work. [Here is the description of that change](https://wiki.php.net/rfc/named_params#call_user_func_and_friends). 
+
+Basically it boils down to how `call_user_func_array` operates when given an associative array. Prior to PHP 8 keys would be ignored when passing an associative array in. Now, with named parameters, array keys matter on that associative array. So in our example we have an array with a key named "routes" but the function we're calling doesn't take a parameter named "routes" so PHP 8 throws an error. 
+
+This is quite simple fix, strip the keys from the associative array:
 ```php
 return call_user_func_array($callable, array_keys($routeArguments));
 ```   
