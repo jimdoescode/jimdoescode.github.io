@@ -3,14 +3,23 @@
 	margin: 0;
 	
 	.profile-pic {
-		border-radius: 2%;
-		max-width: 350px;
 		margin: $paragraph-margin;
+		
+		img {
+			border-radius: 2%;
+			max-width: 350px;
+		}
 	}
 	
 	.blurb { padding-right: 0; }
 	.blurb, .profile-pic { 
 		padding-left: 0; 
+	}
+	
+	@include media-query($screen-md-min) {
+		.profile-pic {
+			padding-right: 30px;
+		}
 	}
 }
 
