@@ -1,3 +1,8 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   font-family: $base-font-family;
   line-height: $base-line-height;
@@ -5,6 +10,8 @@ body {
   text-rendering: optimizeLegibility;
   color: $text-color;
   font-size: $base-font-size;
+  height: 100%;
+  overflow: auto;
 }
 
 .notice {
