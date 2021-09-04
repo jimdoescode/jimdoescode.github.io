@@ -8,7 +8,7 @@ tags: [php, php8, slim]
 
 After upgrading to PHP 8 on a server where I was running a [Slimframework V3](https://www.slimframework.com/docs/v3/) application I started receiving this mysterious error.
 
-The error was "Unknown named parameter $routes" occuring on line 39 of `Slim\Handlers\Strategines\RequestResponseArgs.php`. Here's what that line looks like:
+The error was "Unknown named parameter $routes" occuring on line 39 of `Slim\Handlers\Strategies\RequestResponseArgs.php`. Here's what that line looks like:
 ```php
 return call_user_func_array($callable, $routeArguments);
 ```
@@ -26,4 +26,4 @@ This is a quite simple fix, strip the keys from the associative array:
 return call_user_func_array($callable, array_values($routeArguments));
 ```   
 
-Slim framework 3 lets you use whatever route strategy class you'd like so I made a duplicate of `Slim\Handlers\Strategines\RequestResponseArgs.php` adding in the `array_values` call and now PHP 8 is happy 👍 
+Slim framework 3 lets you use whatever route strategy class you'd like so I made a duplicate of `Slim\Handlers\Strategies\RequestResponseArgs.php` adding in the `array_values` call and now PHP 8 is happy 👍 
