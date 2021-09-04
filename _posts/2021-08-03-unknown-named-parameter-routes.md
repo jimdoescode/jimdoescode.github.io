@@ -26,4 +26,4 @@ This is a quite simple fix, strip the keys from the associative array:
 return call_user_func_array($callable, array_values($routeArguments));
 ```   
 
-Slim framework 3 lets you use whatever route strategy class you'd like so I made a duplicate of `Slim\Handlers\Strategies\RequestResponseArgs.php` adding in the `array_values` call and now PHP 8 is happy 👍 
+Slim framework 3 lets you use whatever route strategy class you'd like so I made a copy of `Slim\Handlers\Strategies\RequestResponseArgs.php` adding in the `array_values` call and now PHP 8 is happy 👍 
