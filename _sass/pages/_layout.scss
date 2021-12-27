@@ -19,6 +19,18 @@ img {
   padding: 0;
 }
 
+.skip-nav-link {
+  padding: 0.5rem 1.5rem; 
+  left: 0.5rem; 
+  transform: translateY(-120%);
+  transition: transform 275ms ease-in;
+}
+
+.skip-nav-link:focus {
+  transform: translateY(0);
+}
+
+
 .header {
   text-align: center;
   top: auto;

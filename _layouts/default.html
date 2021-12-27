@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
   {% include head.html %}
 
   <body>
-
+	<a href="#main-content" class="position-absolute skip-nav-link">Skip Navigation</a>
     <div class="container-fluid" id="main-layout">
       <div class="sidebar col-sm-12 col-md-3">
         {% include sidebar.html %}
       </div>
-      <div class="content col-sm-12 col-md-9 col-lg-8">
+      <div class="content col-sm-12 col-md-9 col-lg-8" id="main-content">
         {{ content }}
         {% include footer.html %}
       </div>
