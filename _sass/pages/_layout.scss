@@ -140,6 +140,10 @@ a.brand-title {
 section.post {
   padding-bottom: 1.5em;
   margin: $base-font-size auto;
+  
+  &:first {
+      margin-top: 0;
+  }
 }
 
 
