@@ -33,7 +33,6 @@ img {
   }
 }
 
-
 .header {
   text-align: center;
   top: auto;
@@ -43,10 +42,10 @@ img {
 
 .sidebar {
   background-color: $background-color;
-  background-image: repeating-linear-gradient(to bottom, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
-  background-size: 10px 100%;
+  background-image: repeating-linear-gradient(to right, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
+  background-size: 100% 10px;
+  background-position: bottom;
   background-repeat:no-repeat;
-  background-position: right;
   color: $white;
   font-weight: 300;
   font-size: $small-font-size;
@@ -175,16 +174,19 @@ a.post-author {
 }
 
 a.post-tag {
-  text-transform: capitalize;
   margin: 0.3em 0.9em 0 0;
   padding: 0.25em 1.5em;
   color: $white;
   background-color: $primary;
   font-size: 80%;
+  font-weight: bold;
   display: inline-block;
   border-radius: 0.33em;
   
-  i { margin-right: 0.25em }
+  i { 
+    vertical-align: middle;
+    font-size: 1.25em;
+  }
 }
 
 .post-images {
@@ -287,22 +289,22 @@ footer {
 
 @include media-query($screen-md-min) {
   .content {
-    padding: 2em 3em 0;
+    padding: 0 3em;
     margin-left: 25%;
-  }
-
-  .sidebar {
-    padding-right: 3em;
-  }
-
-  .header {
-    margin: 50% 0 0;
-    text-align: right;
   }
 
   .sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
+    padding-right: 3em;
+    background-image: repeating-linear-gradient(to bottom, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
+    background-size: 10px 100%;
+    background-position: right;
+  }
+
+  .header {
+    margin: 50% 0 0;
+    text-align: right;
   }
 }
