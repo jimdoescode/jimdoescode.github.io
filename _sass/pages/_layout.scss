@@ -138,7 +138,6 @@ a.brand-title {
 }
 
 section.post {
-  padding-bottom: 1em;
   margin: $base-font-size auto;
 }
 
@@ -175,7 +174,7 @@ a.post-author {
 }
 
 a.post-tag {
-  margin: 0.3em 0.9em 0 0;
+  margin: 0.3em 0.9em 0.6em 0;
   padding: 0.25em 1.5em;
   color: $white;
   background-color: $primary;
@@ -184,7 +183,7 @@ a.post-tag {
   display: inline-block;
   border-radius: 0.33em;
   
-  i { 
+  i {
     vertical-align: middle;
     font-size: 1.25em;
   }

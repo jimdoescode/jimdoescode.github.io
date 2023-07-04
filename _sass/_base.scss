@@ -11,7 +11,7 @@ body {
   color: $text-color;
   font-size: $base-font-size;
   height: 100%;
-  overflow: auto;
+  overflow: clip auto;
 }
 
 .notice {
