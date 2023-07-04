@@ -133,11 +133,12 @@ a.brand-title {
 }
 
 .content {
+  margin-top: -1em;
   padding: 0 2em;
 }
 
 section.post {
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   margin: $base-font-size auto;
 }
 
@@ -289,7 +290,7 @@ footer {
 
 @include media-query($screen-md-min) {
   .content {
-    padding: 0 3em;
+    padding: 0 2em;
     margin-left: 25%;
   }
 
