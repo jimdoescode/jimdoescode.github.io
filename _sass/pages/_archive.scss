@@ -1,5 +1,6 @@
 .archive {
   #timeline {
+  	font-size: $small-font-size;
     position: relative;
     &:before {
       content: '';
