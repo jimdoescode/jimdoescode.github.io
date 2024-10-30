@@ -2,7 +2,7 @@
 
 jim: &DEFAULT
   name: Jim
-  email: jimdoescode+wut@gmail.com
+  email: jimdoescode+wut@pm.me
   bio: "I'm code. I'm developer."
 
 # This makes jimdoescode equivalent to jim so
