@@ -43,7 +43,7 @@ img {
 .sidebar {
   background-color: $background-color;
   background-image: repeating-linear-gradient(to right, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
-  background-size: 100% 10px;
+  background-size: 100% 0.5em;
   background-position: bottom;
   background-repeat:no-repeat;
   color: $white;
@@ -79,7 +79,6 @@ img {
 
 a.brand-title {
   color: $white;
-  font-size: 2.1em;
   font-family: $heading-font-family;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -162,7 +161,7 @@ a.post-author {
 
 .post-description,
 .post-content {
-  font-size: $base-font-size;
+  font-size: $small-font-size;
   line-height: $base-line-height;
 }
 
@@ -178,7 +177,6 @@ a.post-tag {
   padding: 0.25em 1.5em;
   color: $white;
   background-color: $primary;
-  font-size: 80%;
   font-weight: bold;
   display: inline-block;
   border-radius: 0.33em;
@@ -297,7 +295,7 @@ footer {
     position: fixed;
     top: 0;
     bottom: 0;
-    padding-right: 3em;
+    padding-right: 2.5em;
     background-image: repeating-linear-gradient(to bottom, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
     background-size: 10px 100%;
     background-position: right;
