@@ -287,7 +287,7 @@ footer {
 
 @include media-query($screen-md-min) {
   .content {
-    padding: 3.6em 0;
+    padding: 0 3.6em;
     margin-left: 25%;
   }
 
