@@ -41,6 +41,7 @@ img {
 }
 
 .sidebar {
+  background-color: $background-color;
   background-image: repeating-linear-gradient(to right, #c4e17f 0px, #c4e17f 50px, #f7fdca 50px, #f7fdca 100px, #fad071 100px, #fad071 150px, #f0766b 150px, #f0766b 200px, #db9dbe 200px, #db9dbe 250px, #c49cdf 250px, #c49cdf 300px, #6599e2 300px, #6599e2 350px, #61c2e4 350px, #61c2e4 400px);
   background-size: 100% 0.5em;
   background-position: bottom;
@@ -54,7 +55,6 @@ img {
                       radial-gradient(lighten($background-color, 10%) 20%, transparent 20%);
     background-position: 0 0, 5px 5px;
     background-size: 10px;
-    background-color: $background-color;
     height: 100%;
     width: 100%;
   }
