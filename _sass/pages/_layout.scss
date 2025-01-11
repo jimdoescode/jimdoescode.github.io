@@ -51,12 +51,10 @@ img {
   font-size: $small-font-size;
   
   .dots {
-    background-image: radial-gradient(lighten($background-color, 10%) 20%, transparent 20%), 
-                      radial-gradient(lighten($background-color, 10%) 20%, transparent 20%);
+    background-image: radial-gradient(lighten($background-color, 5%) 20%, transparent 20%), 
+                      radial-gradient(lighten($background-color, 5%) 20%, transparent 20%);
     background-position: 0 0, 5px 5px;
-    background-size: 10px;
-    height: 100%;
-    width: 100%;
+    background-size: 10px 10px;
   }
   
   span {opacity: 0.5;}
